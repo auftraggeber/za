@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
+:root {
+    --doc-background-color: rgb(230,230,230);
+    --body-width: 90%;
+    --element-background-color: white;
+    --element-space: 2px;
+    --element-padding-horizontal: 7px;
+    --element-padding-vertical: 1px;
+    --side-type-space: 4px;
+
+    --primary-color: black;
+    --secondary-color: rgb(80,80,80);
+
+    --navbar-top: 9px;
+    --navbar-height: 57px;
+    --navbar-title-text-size: 1.3em;
+    --navbar-title-horizontal-padding: 18px;
+    --nav-item-color: gray;
+    --nav-item-selected-background: rgb(240,240,240);
+    --nav-item-vertical-space: 2px;
+    --nav-item-horizontal-padding: 25px;
+    --nav-item-text-size: 0.85em;
+
+    --content-start: calc(var(--navbar-top) + var(--navbar-height) + var(--side-type-space));
+    --content-text-size: 0.9em;
+
+    --sidebar-width: 250px;
+    --sidebar-text-size: 0.78em;
+}
+
+html, body {
+    background: var(--doc-background-color);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Roboto', Arial;
+    font-weight: 400;
+}
+
+body {
+    width: var(--body-width);
+    margin-left: calc((100% - var(--body-width)) / 2);
+}
+
+span.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.center-text-self {
+    width: 100%;
+    text-align: center;
+}
+
+a.anker {
+    position: absolute;
+    margin-top: calc(-1 * var(--content-start) - var(--side-type-space));
+    display: block;
+}
+
+nav {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--element-background-color);
+    width: var(--body-width);
+    left: calc((100% - var(--body-width)) / 2);
+    top: var(--navbar-top);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+nav div.nav-title {
+    display: table-cell;
+    font-size: var(--navbar-title-text-size);
+    font-weight: 700;
+    height: var(--navbar-height);
+    padding: 0 var(--navbar-title-horizontal-padding);
+    vertical-align: top;
+}
+
+nav div.navbar-nav-wrapper {
+    display: table-cell;
+    overflow: hidden;
+    font-size: var(--nav-item-text-size);
+    height: 100%;
+    vertical-align: top;
+}
+
+nav ul.navbar-nav {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul.navbar-nav a.nav-link {
+    color: var(--nav-item-color);
+    text-decoration: none;
+    display: inline-table;
+    margin: var(--nav-item-vertical-space) 0;
+}
+
+nav ul.navbar-nav a.nav-link span {
+    padding: 0 var(--nav-item-horizontal-padding);
+    height: calc(var(--navbar-height) - (var(--nav-item-vertical-space) * 2));
+}
+
+nav ul.navbar-nav a.nav-link:hover, nav ul.navbar-nav a.nav-link.selected-nav-item {
+    background-color: var(--nav-item-selected-background);
+}
+
+
+div.sidebar {
+    position: fixed;
+    z-index: 900;
+    height: calc(100% - var(--content-start) - var(--side-type-space));
+    width: calc(var(--sidebar-width) - (2 * var(--element-padding-horizontal)));
+    top: var(--content-start);
+    left: calc((100% - var(--body-width)) / 2);
+    font-size: var(--sidebar-text-size);
+}
+
+div.sidebar div.sidebar-section {
+    margin-bottom: var(--side-type-space);
+    background-color: var(--element-background-color);
+    display: block;
+    width: 100%;
+    padding: var(--element-padding-vertical) var(--element-padding-horizontal);
+}
+
+div.wrapper {
+    position: relative;
+    width: calc(100% - var(--sidebar-width) - var(--side-type-space));
+    margin-top: var(--content-start);
+    margin-left: calc(var(--sidebar-width) + var(--side-type-space));
+    font-size: var(--content-text-size);
+}
+
+div.wrapper div.section {
+    background-color: var(--element-background-color);
+    padding: var(--element-padding-vertical) var(--element-padding-horizontal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+div.content-overflow-blocker {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: calc(var(--navbar-height) + var(--navbar-top) + var(--side-type-space));
+    top: 0;
+    background-color: var(--doc-background-color);
+}
